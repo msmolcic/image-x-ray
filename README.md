@@ -31,7 +31,9 @@ Dynamically calculates the maximum message length that can be encoded into an im
 </ol>
 
 ## 💻 Setup
-To use this tool, clone the repository and open the index.html file in your browser.
+
+Try it out [LIVE](https://image-x-ray.netlify.app/)!
+To use this tool locally, clone the repository and open the index.html file in your browser.
 
 ```bash
 git clone git@github.com:msmolcic/image-x-ray.git
