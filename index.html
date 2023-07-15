@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image X-Ray</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    </head>
+    <body class="container py-4">
+        <h1 class="color-primary-0">Image X-Ray</h1>
+
+        <ul class="nav nav-tabs" id="tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active color-primary-1" id="encode-tab" data-toggle="tab" href="#encode" role="tab">Encode</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link color-primary-1" id="decode-tab" data-toggle="tab" href="#decode" role="tab">Decode</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="tabContent">
+            <div class="tab-pane fade show active tab-card" id="encode" role="tabpanel">
+                <div class="tab-card-header">
+                    <h3 class="color-primary-0">Encode</h3>
+                </div>
+                <input type="file" id="uploadImage" accept="image/*" onchange="previewImage(this.files, 'previewEncode')"><br/>
+                <textarea id="message" placeholder="Type your secret message here" oninput="updateMessageLength()" rows="4" cols="50"></textarea>
+                <p id="messageLength" class="color-primary-2"></p>
+                <button class="btn btn-primary" onclick="encode()">Encode</button>
+                <div id="fileName">
+                    <p>File name:</p>
+                    <input type="text" id="imageName" value="encoded-image" placeholder="Enter the image name">
+                </div>
+                <a id="downloadLink" class="btn btn-primary">Download image</a>
+                <h3>Preview:</h3>
+                <canvas id="previewEncode" class="img-thumbnail"></canvas>
+            </div>
+
+            <div class="tab-pane fade tab-card" id="decode" role="tabpanel">
+                <div class="tab-card-header">
+                    <h3 class="color-primary-0">Decode</h3>
+                </div>
+                <input type="file" id="uploadStegoImage" accept="image/*" onchange="autoDecode(this.files)">
+                <h3>Decoded message:</h3>
+                <textarea id="decodedMessage" class="form-control color-primary-2" rows="5" readonly></textarea>
+                <h3>Preview:</h3>
+                <canvas id="previewDecode" class="img-thumbnail"></canvas>
+            </div>
+        </div>
+
+        <script src="scripts/steganography.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
